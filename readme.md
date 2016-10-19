@@ -1,3 +1,19 @@
+
+## Laravel-Quiz functionality
+-> Create a new quiz
+-> Create quiz questions
+-> Create quiz question options -- Pending.. 
+
+## To be implemented
+-> Finish quiz question options.
+-> Change question position.
+-> Change question option position.
+-> Randomize question order on display page.
+-> Track user attempts per quiz.
+-> Allow user to take quiz.
+-> allow user to complete quiz.
+-> show quiz results on complete.
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
@@ -25,6 +41,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
-## Quiz functionality
--> ### Create a new Quiz
