@@ -1,6 +1,7 @@
 ## Laravel-Quiz functionality
 * Create a new quiz
-* Create quiz questions
+* Create quiz questions -- single & multi Select
+* show quiz questions
 * Create quiz question options -- Pending.. 
 
 ## To be implemented
