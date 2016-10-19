@@ -1,3 +1,7 @@
+ Markup : * Bullet list
+           * Nested bullet
+            * Sub-nested bullet etc
+          * Bullet list item 2
 
 ## Laravel-Quiz functionality
 -> Create a new quiz
