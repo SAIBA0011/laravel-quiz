@@ -1,22 +1,17 @@
- Markup : * Bullet list
-           * Nested bullet
-            * Sub-nested bullet etc
-          * Bullet list item 2
-
 ## Laravel-Quiz functionality
--> Create a new quiz
--> Create quiz questions
--> Create quiz question options -- Pending.. 
+* Create a new quiz
+* Create quiz questions
+* Create quiz question options -- Pending.. 
 
 ## To be implemented
--> Finish quiz question options.
--> Change question position.
--> Change question option position.
--> Randomize question order on display page.
--> Track user attempts per quiz.
--> Allow user to take quiz.
--> allow user to complete quiz.
--> show quiz results on complete.
+* Finish quiz question options.
+* Change question position.
+* Change question option position.
+* Randomize question order on display page.
+* Track user attempts per quiz.
+* Allow user to take quiz.
+* allow user to complete quiz.
+* show quiz results on complete.
 
 # Laravel PHP Framework
 
