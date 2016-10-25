@@ -1,3 +1,19 @@
+## Laravel-Quiz functionality
+* Create a new quiz
+* Create quiz questions -- single & multi Select
+* show quiz questions
+* Create quiz question options -- Pending.. 
+
+## To be implemented
+* Finish quiz question options.
+* Change question position.
+* Change question option position.
+* Randomize question order on display page.
+* Track user attempts per quiz.
+* Allow user to take quiz.
+* allow user to complete quiz.
+* show quiz results on complete.
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
