@@ -11,25 +11,37 @@
 |
 */
 
-Route::get('/', ['uses' => 'QuizController@index']);
-
 Auth::routes();
+Auth::routes();
+Route::get('/home', 'HomeController@index');
 
-// Quiz Controller
-Route::group(['as' => 'quiz.', 'prefix' => 'quiz'], function (){
-    Route::get('/', ['as' => 'index', 'uses' => 'QuizController@index']);
-    Route::get('create', ['as' => 'create', 'uses' => 'QuizController@create']);
-    Route::post('store', ['as' => 'store', 'uses' => 'QuizController@store']);
-    Route::get('show/{quiz}', ['as' => 'show', 'uses' => 'QuizController@show']);
+
+// Quiz Creation
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function (){
+
+    // Quiz
+    Route::get('quiz/new', ['as' => 'quiz.create', 'uses' => 'QuizController@create']);
+    Route::post('quiz/new', ['as' => 'quiz.store', 'uses' => 'QuizController@store']);
+    Route::get('{quiz}/show', ['as' => 'quiz.show', 'uses' => 'QuizController@show']);
+
+    // Quiz Questions
+    Route::get('{quiz}/question/new', ['as' => 'question.create', 'uses' => 'QuizQuestionController@create']);
+    Route::post('{quiz}/question/new', ['as' => 'question.store', 'uses' => 'QuizQuestionController@store']);
+    Route::get('question/{question}/{quiz}', ['as' => 'question.show', 'uses' => 'QuizQuestionController@show']);
+
+    // Quiz Answers
+    Route::post('answer/{question}/save', ['as' => 'answer.store', 'uses' => 'QuizAnswerController@store']);
 });
 
-// Quiz Question Controller
-Route::group(['as' => 'questions.', 'prefix' => 'questions'], function (){
-    Route::get('{question}/{quiz}', ['as' => 'show', 'uses' => 'QuizQuestionController@show']);
-    Route::post('{quiz}/store', ['as' => 'store', 'uses' => 'QuizQuestionController@store']);
-});
+// All Quizzes
+Route::get('/', ['uses' => 'Admin\QuizController@index']);
 
-// Quiz Question Answer Controller
-Route::group(['as' => 'options.', 'prefix' => 'options'], function (){
-    Route::get('{question}/{quiz}/show', ['as' => 'show',  'uses' => 'QuizQuestionOptionController@show']);
-});
+// Take Quiz
+Route::get('{quiz}/start', ['as' => 'quiz.start', 'uses' => 'TakeQuizController@start']);
+
+// Submit Quiz
+Route::post('{quiz}/submit', ['as' => 'quiz.submit', 'uses' => 'QuizResultsController@store']);
+
+// Quiz Results
+Route::get('{quiz}/results', ['as' => 'quiz.results', 'uses' => 'QuizResultsController@index']);
+
