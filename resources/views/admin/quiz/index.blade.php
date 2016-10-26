@@ -8,14 +8,22 @@
             <thead>
                 <th>Quiz Title</th>
                 <th>Quiz Questions</th>
+                <th>Tools</th>
             </thead>
             <tbody>
-            @foreach($quizzes as $quiz)
+            @if(count($quizzes))
+                @foreach($quizzes as $quiz)
+                    <tr>
+                        <td>{{ $quiz->title }}</td>
+                        <td>{{ $quiz->questions->count() }}</td>
+                        <td><a href="#" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                @endforeach
+            @else
                 <tr>
-                    <td>{{ $quiz->title }}</td>
-                    <td>{{ $quiz->questions->count() }}</td>
+                    <td colspan="3">You have no quizzes available.</td>
                 </tr>
-            @endforeach
+            @endif
             </tbody>
         </table>
     </div>

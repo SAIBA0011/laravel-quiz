@@ -32,22 +32,19 @@ class QuizQuestionController extends Controller
         $question->quiz()->save($quiz)->save();
 
         foreach ($request->options as $option){
-            $option = Option::create($option);
+            $option = new Option($option);
             $question->options()->save($option);
         }
-        return back();
+
+        return redirect()->route('admin.quiz.show', $quiz->slug);
     }
 
-    public function show($question, $quiz)
+    public function show($quiz, $question)
     {
         $question = Question::where('slug', $question)->get()->first();
+
         $quiz = Quiz::where('slug', $quiz)->get()->first();
         return view('admin.question.show', compact('question', 'quiz'));
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)
@@ -55,8 +52,10 @@ class QuizQuestionController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy($question)
     {
-        //
+        $question = Question::where('slug', $question);
+        $question->delete();
+        return back();
     }
 }

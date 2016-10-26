@@ -16,11 +16,10 @@ class QuizAnswerController extends Controller
         $question = Question::where('slug', $question)->get()->first();
         foreach ($request->option as $option){
             $answer = new Answer();
-                $answer->question()->associate($question);
-                $answer->option()->associate($option);
+            $answer->option()->associate($option);
+            $answer->question()->associate($question);
             $answer->save();
         }
-
         return back();
     }
 }

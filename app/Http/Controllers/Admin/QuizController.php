@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Question;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 
@@ -38,8 +39,14 @@ class QuizController extends Controller
         
     }
 
-    public function destroy()
+    public function destroy($quiz)
     {
-
+        $quiz = Quiz::where('slug', $quiz)->first();
+        $questions = $quiz->questions;
+        foreach ($questions as $question){
+            $question->delete();
+        }
+        $quiz->delete();
+        return back();
     }
 }
