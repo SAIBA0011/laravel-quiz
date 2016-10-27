@@ -10,6 +10,8 @@
             {!! Form::input('text', 'title', null, ['class' => 'form-control']) !!}
         </div>
 
+        {!! Form::hidden('reference') !!}
+
         <div class="form-group">
             {!! Form::submit('Submit', ['class' => 'btn btn-info']) !!}
         </div>

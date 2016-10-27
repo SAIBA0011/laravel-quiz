@@ -15,6 +15,11 @@ Auth::routes();
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
+Route::get('test', function (){
+    $user = auth()->user();
+    dd($user->quiz_results);
+});
+
 
 // Quiz Creation
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], function (){

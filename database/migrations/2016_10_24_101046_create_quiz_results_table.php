@@ -20,7 +20,7 @@ class CreateQuizResultsTable extends Migration
             $table->integer('total_attempt');
             $table->integer('correct_answers');
             $table->float('percentage');
-            $table->timestamp('added_on')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

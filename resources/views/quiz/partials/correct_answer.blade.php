@@ -20,5 +20,5 @@
             @endif
         @endif
     @endforeach
+    <hr>
 @endforeach
-<hr>

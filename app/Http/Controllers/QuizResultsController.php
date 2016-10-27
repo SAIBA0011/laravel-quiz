@@ -19,7 +19,6 @@ class QuizResultsController extends Controller
     }
 
     public function store(Request $request, $quiz){
-        $input = $request->all();
         $quiz = Quiz::where('slug', $quiz)->get()->first();
 
         if($request->option){
@@ -78,7 +77,7 @@ class QuizResultsController extends Controller
             $success_percentage = ceil(($correct_answer_count * 100)/($correct_answer_count + $wrong_answer_count));
 
             $result_data = [
-                'user_id' => '1',
+                'user_id' => auth()->user()->id,
                 'quiz_id' => $quiz->id,
                 'total_attempt' => ($correct_answer_count + $wrong_answer_count),
                 'correct_answers' => $correct_answer_count,

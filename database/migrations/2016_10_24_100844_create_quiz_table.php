@@ -17,7 +17,7 @@ class CreateQuizTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
-            $table->integer('number');
+            $table->string('reference');
             $table->timestamps();
         });
     }

@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     use Sluggable;
-    protected $table = 'quiz';
     protected $guarded = [];
+    protected $table = 'quiz';
 
     public function sluggable()
     {
@@ -18,6 +18,11 @@ class Quiz extends Model
                 'source' => 'title'
             ]
         ];
+    }
+
+    public function setReferenceAttribute()
+    {
+        return $this->attributes['reference'] = '#'.str_random(10);
     }
 
     public function questions()
