@@ -19,8 +19,22 @@ class QuizResultsController extends Controller
     }
 
     public function store(Request $request, $quiz){
-        $quiz = Quiz::where('slug', $quiz)->get()->first();
 
+        $user = auth()->user();
+        $quiz = Quiz::where('slug', $quiz)->get()->first();
+        $results = QuizResults::where('user_id', $user->id)->where('quiz_id', $quiz->id)->get();
+
+        // The given user has reached it max attempts to try the quiz
+        if ($results->count() === $quiz->max_attempts){
+            $message = 'You have reached the maximum amount of attempts for this quiz.';
+            return back();
+
+        // The given user has already passed this quiz.
+        }elseif($results->where('percentage', $quiz->pass_percentage)->count() === 1){
+            $message = 'You have already pass this quiz.';
+            return back();
+
+        }else
         if($request->option){
             foreach($request->option as $key => $value){
                 $answer = Answer::select('option_id')->where('question_id','=',$key)->get();
