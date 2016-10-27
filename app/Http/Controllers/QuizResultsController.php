@@ -75,7 +75,7 @@ class QuizResultsController extends Controller
                 $wrong_answer = null;
             }
 
-            $success_percentage = ($correct_answer_count * 100)/($correct_answer_count + $wrong_answer_count);
+            $success_percentage = ceil(($correct_answer_count * 100)/($correct_answer_count + $wrong_answer_count));
 
             $result_data = [
                 'user_id' => '1',
