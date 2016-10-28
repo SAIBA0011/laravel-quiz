@@ -112,7 +112,8 @@ class QuizResultsController extends Controller
             $passed = true;
             return $passed;
         } else
-            $passed = false;return $passed;
+            $passed = false;
+        return $passed;
     }
 
     /**
@@ -132,8 +133,6 @@ class QuizResultsController extends Controller
             'percentage' => $success_percentage,
             'passed' => $passed
         ];
-
-        // Create the result data for the user.
         QuizResults::create($result_data);
     }
 }
