@@ -47,6 +47,12 @@ class QuizQuestionController extends Controller
         return view('admin.question.show', compact('question', 'quiz'));
     }
 
+    public function edit($question)
+    {
+        $question = Question::with('answers')->where('slug', $question)->first();
+        return view('admin.question.edit', compact('question'));
+    }
+
     public function update(Request $request, $id)
     {
         //

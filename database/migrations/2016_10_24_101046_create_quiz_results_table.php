@@ -21,6 +21,9 @@ class CreateQuizResultsTable extends Migration
             $table->integer('correct_answers');
             $table->float('percentage');
             $table->boolean('passed');
+
+            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('quiz_id')->reference('id')->on('quiz')->onDelete('cascade');
             $table->timestamps();
         });
     }

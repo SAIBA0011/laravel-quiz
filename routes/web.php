@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
     // Quiz Questions
     Route::get('{quiz}/question/create', ['as' => 'question.create', 'uses' => 'QuizQuestionController@create']);
     Route::post('{quiz}/question/store', ['as' => 'question.store', 'uses' => 'QuizQuestionController@store']);
-    Route::post('{quiz}/question/edit', ['as' => 'question.edit', 'uses' => 'QuizQuestionController@edit']);
+    Route::get('{quiz}/question/edit', ['as' => 'question.edit', 'uses' => 'QuizQuestionController@edit']);
     Route::post('{quiz}/question/update', ['as' => 'question.update', 'uses' => 'QuizQuestionController@update']);
     Route::get('question/{question}/destroy', ['as' => 'question.destroy', 'uses' => 'QuizQuestionController@destroy']);
 
