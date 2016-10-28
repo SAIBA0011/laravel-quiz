@@ -30,4 +30,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany(QuizResults::class);
 	}
 
+	// To be implemented, this is for the frontend to check if a user passed a certian quiz.
+    public function checkQuizPassedStatus($quiz)
+    {
+
+    }
+
 }

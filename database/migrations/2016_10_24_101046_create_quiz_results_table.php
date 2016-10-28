@@ -20,6 +20,7 @@ class CreateQuizResultsTable extends Migration
             $table->integer('total_attempt');
             $table->integer('correct_answers');
             $table->float('percentage');
+            $table->boolean('passed');
             $table->timestamps();
         });
     }

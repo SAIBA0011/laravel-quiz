@@ -19,7 +19,7 @@ class CreateQuizTable extends Migration
             $table->string('slug');
             $table->string('reference');
             $table->integer('max_attempts');
-            $table->integer('pass_percentage');
+            $table->float('pass_percentage');
             $table->timestamps();
         });
     }
