@@ -8,7 +8,7 @@
         @if($question->answerIsSet())
             <table class="table">
                 <thead>
-                    <th>Option</th>
+                    <th>Answer Option</th>
                     <th>Correct</th>
                 </thead>
                 <tbody>
